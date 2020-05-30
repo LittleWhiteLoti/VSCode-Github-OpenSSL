@@ -106,9 +106,9 @@ Loading repository in Visual Studio Code Source Control that doesn't show up
    1. Source Control Extension
    2. Open folder with .git in it that was already linked to a repository
 
-Loading repository in Visual Studio Code when a repository is already loaded in Source Control
-   1. Click on GitLens extension
-   2. Under repository right click and close repository
+Switching Repositories that are loaded into Source Control
+   1. File > Close Folder
+   2. File > Open Folder (This should have a .git that is linked to a remote repository)
 
 Commit using the Source Control Extension
    1. Type a commit message
