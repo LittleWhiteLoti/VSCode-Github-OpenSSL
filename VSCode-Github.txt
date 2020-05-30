@@ -4,7 +4,7 @@ Download and use github in Visual Studio Code
    2. Install git 
        # Checkout as-in, commit Unix-style line endings
        # Use Windows' default console window
-       # Enable file system caching
+       # Enable file system cachine
        # Enable Git Credential Manager
        # Add Git to environment path
    [Note] Open up Visual Studio Code and git should be automatically be connected
@@ -16,6 +16,32 @@ Disable Diagnostics Crash Reporting
    2. Search Telemetry
    3. Uncheck both boxes
    4. Restart VSCode
+
+Enable Bash Terminal
+   1. Open search bar with Ctrl + Shift + p
+   2. In the search bar type >Shell
+   3. Select "Terminal Select Default Shell"
+   4. Select "Git Bash"
+
+Create .bashrc
+   1. Open terminal (Shortcut Ctrl + `)
+   2. Navigate to your user home directory
+   3. Type "copy > ~/.bashrc"
+       # The terminal will say "Command not found" but the .bashrc file will be created
+
+Common .bashrc Alias
+   Enable Vue create 
+   -  alias vue='winpty vue.cmd'
+
+Connecting Node to windows environment variable
+   1. Search Environment Variables
+   2. In the System Properties windows click Environment Variables
+   3. In User variables for { Username } click Path then click Edit
+   4. If the npm does appear Click browser and look for the folder C:/Users/{Username}/AppData/Roaming/npm
+   5. Click OK
+   6. In System variables click Path then click Edit
+   7. Click browse and look for the folder C:/(Program Files | Program File (x86))/nodejs
+   8. Click OK
 
 Setting up Github is VSCode
    1. Download git from https://git-scm.com/download/win
@@ -37,7 +63,7 @@ Setting up Github is VSCode
    7. Open terminal (Shortcut Ctrl + `)
       Terminal: git config --global user.name "{{ USERNAME }}"
 	  Terminal: git config --global user.email "{{ EMAIL }}"
-	  * This may open up a window allowing you to connect to your github account that way  
+	  * This may open up a window allowing you to connect to your github account that way
 
 Ignore directory changes in VSCode
    * Useful if a directory is changed a lot, such as, node_modules
@@ -73,17 +99,15 @@ Commit from local repository to remote
 Creating new local repository from existing remote repository
    1. Make sure the local repository is empty
    2. Open terminal (Shortcut Ctrl + `)
-      * Make sure you are in the directory you want the local copy of your repository to live in
-      Terminal: git init   
+      * Make sure you are in the directory you want the local copy of your repository to live in 
       Terminal: git clone https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
 	  
 Loading repository in Visual Studio Code Source Control that doesn't show up
    1. Source Control Extension
    2. Open folder with .git in it that was already linked to a repository
 
-Loading repository in Visual Studio Code Source Control when another repository is already loaded
-   1. File > Add Folder to Workspace > Folder that has a .git file
-   2. Click Add and it will appear in your Source Control Extension
+Loading repository in Visual Studio Code when a repository is already loaded in Source Control
+   1.
 
 Commit using the Source Control Extension
    1. Type a commit message
