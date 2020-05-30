@@ -2,12 +2,12 @@ Download and use github in Visual Studio Code
 
    1. Download git from https://git-scm.com/download/win
    2. Install git 
-       # Checkout as-in, commit Unix-style line endings
-       # Use Windows' default console window
-       # Enable file system cachine
-       # Enable Git Credential Manager
-       # Add Git to environment path
-   [Note] Open up Visual Studio Code and git should be automatically be connected
+      # Checkout as-in, commit Unix-style line endings
+      # Use Windows' default console window
+      # Enable file system cachine
+      # Enable Git Credential Manager
+      # Add Git to environment path
+   [Note] Open up Visual Studio Code and git SHOULD be automatically be connected
 
 Ref: https://blogs.msdn.microsoft.com/nicktrog/2016/02/11/configuring-visual-studio-code-for-php-development/
 
@@ -46,18 +46,18 @@ Connecting Node to windows environment variable
 Setting up Github is VSCode
    1. Download git from https://git-scm.com/download/win
    2. Install git with the following settings 
-       # Git from command-line and from 3rd-party software
-       # Use OpenSSL library
-       # Checkout as-in, commit Unix-style line endings
-       # Use Windows' default console window
-       # Enable file system caching
-       # Enable Git Credential Manager
+      # Git from command-line and from 3rd-party software
+      # Use OpenSSL library
+      # Checkout as-in, commit Unix-style line endings
+      # Use Windows' default console window
+      # Enable file system caching
+      # Enable Git Credential Manager
    4. Search Environment Variables
-       # Advanced Tab
-       # Environment Variables
-       # System Variables > Edit Path
-       # New with Path being C:\Program Files\Git\bin or where ever the Git\bin folder is
-       # Click Okay
+      # Advanced Tab
+      # Environment Variables
+      # System Variables > Edit Path
+      # New with Path being C:\Program Files\Git\bin or where ever the Git\bin folder is
+      # Click Okay
    5. Download gitHub extension
    6. Download gitHub Pull Requests extension
    7. Open terminal (Shortcut Ctrl + `)
@@ -85,29 +85,30 @@ Initial commit from local repository to remote
       * Make sure you are in the directory you want the local copy of your repository to live in
       Terminal: git init
       Terminal: git add .
-	  Terminal: git commit -m "Initial commit"
-	  Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
-	  Terminal: git push -u origin master
+	   Terminal: git commit -m "Initial commit"
+	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
+	   Terminal: git push -u origin master
 	  
 Commit from local repository to remote
    1. Navigate to repository with a .git already in it. If it does not exists use the previous instructions
    2. Open terminal (Shortcut Ctrl + `)
       Terminal: git add .
-	  Terminal: git commit -m "Initial commit"
-	  Terminal: git push -u origin master
+	   Terminal: git commit -m "Initial commit"
+	   Terminal: git push -u origin master
 
 Creating new local repository from existing remote repository
-   1. Make sure the local repository is empty
+   1. Make sure you are in the directory you want the local copy of your repository to live in
    2. Open terminal (Shortcut Ctrl + `)
-      * Make sure you are in the directory you want the local copy of your repository to live in 
       Terminal: git clone https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
+   # The clone command will automatically track the repository
 	  
 Loading repository in Visual Studio Code Source Control that doesn't show up
    1. Source Control Extension
    2. Open folder with .git in it that was already linked to a repository
 
 Loading repository in Visual Studio Code when a repository is already loaded in Source Control
-   1.
+   1. Click on GitLens extension
+   2. Under repository right click and close repository
 
 Commit using the Source Control Extension
    1. Type a commit message
