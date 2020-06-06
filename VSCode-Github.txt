@@ -1,15 +1,42 @@
 Download and use github in Visual Studio Code
 
+Setting up Github in Visual Studio Code
    1. Download git from https://git-scm.com/download/win
-   2. Install git 
+   2. Click Install git
+   3. Select Components Window
+      # (Optional) Uncheck Windows Explorer Integration
+      # Click Next
+   4. Pick editor for Git File Window
+      # (Optional) Visual Studio Code as Git editor or use Notepad++ if installed
+   5. Git Formatting Window
       # Checkout as-in, commit Unix-style line endings
       # Use Windows' default console window
       # Enable file system cachine
       # Enable Git Credential Manager
+      Note: This should add the git binary to system environment path. 
+      If it doesn't follow then follow the next instructions.
       # Add Git to environment path
-   [Note] Open up Visual Studio Code and git SHOULD be automatically be connected
+      # Finish installing Git
+   6. Download Visual Studio Code for system from https://code.visualstudio.com/download
 
 Ref: https://blogs.msdn.microsoft.com/nicktrog/2016/02/11/configuring-visual-studio-code-for-php-development/
+
+Setting Git as an Environment Variable
+   1. Search Environment Variables
+      # Advanced Tab
+      # Environment Variables
+      # System Variables > Edit Path
+      # New with Path being C:\Program Files\Git\bin or where ever the Git\bin folder is
+      # Click Okay
+
+Syncing Visual Studio Code with Github.com account
+   1. Download GitHub extension
+   2. Download GitHub Pull Requests extension
+   3. Open terminal (Shortcut Ctrl + `)
+      Terminal: git config --global user.name "{{ USERNAME }}"
+	   Terminal: git config --global user.email "{{ EMAIL }}"
+	4. Click Github Pull Request extension on the side window
+   5. Click Sign In and a window will pop up asking you to sign into Github and to add an OAuth token.
 
 Disable Diagnostics Crash Reporting
    1. File > Preferences > Settings
@@ -36,28 +63,6 @@ Common .bashrc Alias
          # alias vue='winpty vue.cmd'
       3. Save .bashrc file
       4. Restart VSCode
-
-Setting up Github is VSCode
-   1. Download git from https://git-scm.com/download/win
-   2. Install git with the following settings 
-      # Git from command-line and from 3rd-party software
-      # Use OpenSSL library
-      # Checkout as-in, commit Unix-style line endings
-      # Use Windows' default console window
-      # Enable file system caching
-      # Enable Git Credential Manager
-   4. Search Environment Variables
-      # Advanced Tab
-      # Environment Variables
-      # System Variables > Edit Path
-      # New with Path being C:\Program Files\Git\bin or where ever the Git\bin folder is
-      # Click Okay
-   5. Download gitHub extension
-   6. Download gitHub Pull Requests extension
-   7. Open terminal (Shortcut Ctrl + `)
-      Terminal: git config --global user.name "{{ USERNAME }}"
-	  Terminal: git config --global user.email "{{ EMAIL }}"
-	  * This may open up a window allowing you to connect to your github account that way
 
 Ignore directory changes in VSCode
    * Useful if a directory is changed a lot, such as, node_modules
