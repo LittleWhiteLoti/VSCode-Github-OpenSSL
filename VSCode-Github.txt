@@ -33,10 +33,13 @@ Syncing Visual Studio Code with Github.com account
    1. Download GitHub extension
    2. Download GitHub Pull Requests extension
    3. Open terminal (Shortcut Ctrl + `)
-      Terminal: git config --global user.name "{{ USERNAME }}"
-	   Terminal: git config --global user.email "{{ EMAIL }}"
+      Terminal: git config --global user.name {{ USERNAME }}
+	   Terminal: git config --global user.email {{ EMAIL }}
 	4. Click Github Pull Request extension on the side window
-   5. Click Sign In and a window will pop up asking you to sign into Github and to add an OAuth token.
+   5. Click Sign In and a window will pop up asking you to sign into Github 
+   and to add an OAuth token.
+   * You may have to do a pull or push to a repository for the user dialog 
+   window shows up asking you to sign into github.com
 
 Disable Diagnostics Crash Reporting
    1. File > Preferences > Settings
