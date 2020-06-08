@@ -4,7 +4,7 @@ Download and OpenSSL run
 2. Download the Exe or MSI
 3. Run the file
    # Path C:\Program Files\OpenSSL-Win64 or where ever you want the installation
-   # Copy OpenSSSL DLL to The OpenSSL binaries (/bin) directory
+   # Copy OpenSSL DLLs to: The OpenSSL binaries (/bin) directory
 4. Search Environment Variables
    # Click the advanced tab
    # Environment Variables 
