@@ -28,7 +28,7 @@ Create a Development SSL Certificate and Key
    Terminal: Enter previously given passphrase for {CA}.key
    Terminal: Enter In Fake Information for CA Authority
 
-2. (optional) Installing Certificate Authority 
+2. (optional) Installing Certificate Authority into windows
 
 3. Create Development Server Certificate Signing Request
    Terminal: openssl genrsa -out {localhost}.key 4096
