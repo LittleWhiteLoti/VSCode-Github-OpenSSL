@@ -1,0 +1,14 @@
+Activate Windows Subsystem Linux (WSL)
+   1. Search powershell in search bar
+   2. Right-click and select `Run as Administrator`
+   3. In the Powershell terminal
+      # Terminal: dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+      # Wait for the linux image to install
+      # If you only want WSL 1, restart the system and follow the reference instructions for installing a distribution
+      Ref: https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-your-linux-distribution-of-choice
+   Ref: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+Update Windows Subsystem Linux (WSL) to Windows Subsystem Linux 2 (WSL2)
+   Note: Before getting start you must have Windows 10 with Build 19041
+
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
