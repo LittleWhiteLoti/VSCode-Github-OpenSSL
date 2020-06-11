@@ -1,5 +1,5 @@
 Activate Windows Subsystem Linux (WSL)
-   1. Search powershell in search bar
+   1. Search powershell in the search bar
    2. Right-click and select `Run as Administrator`
    3. In the Powershell terminal
       # Terminal: dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -9,6 +9,49 @@ Activate Windows Subsystem Linux (WSL)
    Ref: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 Update Windows Subsystem Linux (WSL) to Windows Subsystem Linux 2 (WSL2)
-   Note: Before getting start you must have Windows 10 with Build 19041
+   Note: In order to work your machine must have Windows 10 with Build 19041
+         and your machine must support Hyper-V which should be enabled in
+         the system BIOS.
+   1. Search powershell in the search bar
+   2. Right-click and select `Run as Administrator`
+   3. In the Powershell terminal
+      # Terminal: dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+      # Wait for feature to be enabled
+      # Terminal: wsl --set-default-version 2
+      Note: If you get the error message `Please enable the Virtual Machine Platform Windows feature and ensure 
+      virtualization is enabled in the BIOS.` Jump to Enable Virtual Machine Platform Windows & virtualization
+      instructions, finish them and jump back here.
+      Note: If you get the error message `WSL 2 requires an update to its kernel component.` Jump to 
+      Update Windows Subsystem Linux Kernel Component
+   4. # Terminal: wsl -l -v 
+      Note: This shows the current version of Windows Linux Distribution if one is running on the machine. you
+      should expect to get the message `Windows Subsystem for Linux has no installed distributions. Distributions
+      can be installed by visiting the Microsoft Store:`
+      Note: Install a Linux distribution and you should see something like
+       NAME       STATE      version
+      (Name)  (Installing)      2  
+
+Enable Virtual Machine Platform Windows & virtualization
+   1. Search control panel in the search bar and open window
+   2. Click Programs
+   3. Click Turn Windows feature on or off
+   4. Check the Hyper-V checkbox
+      # Note: This is Window's hypervisor and is required for WSL2
+   5. Check Virtual Machine Platform
+   6. Check the Windows Hypervisor Platform
+   7. Click Ok and wait for the features to be enabled
+   8. Restart the machine
+
+Update Windows Subsystem Linux Kernel Component
+   1. Download the latest Linux kernel at https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel.
+   2. Install the executable package.
+
+Install a Linux Distribution on the Windows Subsystem Linux
+   1. Search microsoft store in the search bar and open the window
+   2. Click the search icon on the right side of the window
+   3. Search (any) linux distribution
+   4. Click on an App
+   5. Click Get
+   6. Wait for it to download
 
 https://docs.microsoft.com/en-us/windows/wsl/install-win10
