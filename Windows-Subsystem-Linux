@@ -2,7 +2,7 @@ Activate Windows Subsystem Linux (WSL)
    1. Search powershell in the search bar
    2. Right-click and select `Run as Administrator`
    3. In the Powershell terminal
-      # Terminal: dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+      Terminal: dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
       # Wait for the linux image to install
       # If you only want WSL 1, restart the system and follow the reference instructions for installing a distribution
       Ref: https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-your-linux-distribution-of-choice
@@ -15,15 +15,15 @@ Update Windows Subsystem Linux (WSL) to Windows Subsystem Linux 2 (WSL2)
    1. Search powershell in the search bar
    2. Right-click and select `Run as Administrator`
    3. In the Powershell terminal
-      # Terminal: dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+      Terminal: dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
       # Wait for feature to be enabled
-      # Terminal: wsl --set-default-version 2
+      Terminal: wsl --set-default-version 2
       Note: If you get the error message `Please enable the Virtual Machine Platform Windows feature and ensure 
       virtualization is enabled in the BIOS.` Jump to Enable Virtual Machine Platform Windows & virtualization
       instructions, finish them and jump back here.
       Note: If you get the error message `WSL 2 requires an update to its kernel component.` Jump to 
       Update Windows Subsystem Linux Kernel Component
-   4. # Terminal: wsl -l -v 
+   4. Terminal: wsl -l -v 
       Note: This shows the current version of Windows Linux Distribution if one is running on the machine. you
       should expect to get the message `Windows Subsystem for Linux has no installed distributions. Distributions
       can be installed by visiting the Microsoft Store:`

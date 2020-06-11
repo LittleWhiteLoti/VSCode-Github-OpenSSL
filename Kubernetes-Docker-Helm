@@ -1,0 +1,30 @@
+Enable Kubernetes & Docker in Windows Subsystem Linux
+   1. Open Terminal
+      Terminal: sudo passwd root
+      # Set a password for the root user
+   2. (Optional) Enable sudoer for all users
+      Warning: This should never be used in production
+   3. Change the visudo file
+      Terminal: su root
+      # Type password for root user
+      Terminal: cd /etc
+      Terminal: vi sudoers
+      # Hit Ctrl + i to enter interactive mode in vi
+      # Find the line: %sudo   ALL=(ALL:ALL)
+      # Append: NOPASSWD: ALL
+      Note: It should give you a warning this is a read-only file
+      # Press: Esc to exit interactive mode
+      Terminal: :w !sudo tee %
+      # This command will override the read-only mode and save the file
+      Terminal: [O] Okay
+      Terminal: :wq!
+      # The read-only file should be overwritten 
+
+
+Resetting Windows Linux Distrobution
+# Useful if you mess up a file such as the sudoer file
+   1. On windows search apps & features
+   2. Look for the Linux distrobution that needs reset 
+   3. Click Advanced Options
+   4. Click Reset
+       
