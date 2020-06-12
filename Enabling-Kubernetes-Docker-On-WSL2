@@ -66,6 +66,8 @@ Enable Kubernetes & Docker in Windows Subsystem Linux
       Terminal: kubectl version
       # If you do not, you will have to do some troubleshooting on the internet 
 
+Next Instruction Set: Enabling-and-Configuring-Kind-and MiniKube
+
 Ref: https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-desktop/
 
 Resetting Windows Linux Distrobution
