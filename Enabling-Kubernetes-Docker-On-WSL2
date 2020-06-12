@@ -66,10 +66,11 @@ Enable Kubernetes & Docker in Windows Subsystem Linux
       Terminal: kubectl version
       # If you do not, you will have to do some troubleshooting on the internet 
 
+Ref: https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-desktop/
+
 Resetting Windows Linux Distrobution
 # Useful if you mess up a file such as the sudoer file
    1. On windows search apps & features
    2. Look for the Linux distrobution that needs reset 
    3. Click Advanced Options
    4. Click Reset
-       
