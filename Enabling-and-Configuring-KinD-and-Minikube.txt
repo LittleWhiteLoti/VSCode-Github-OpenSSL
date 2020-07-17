@@ -4,16 +4,16 @@ instructions
 
 Enabling KinD
    1. Go to the web page and check what the latest version is at https://github.com/kubernetes-sigs/kind/releases/ 
-   1. Back in WSL download the latest version of KinD in the WSL
+   2. Back in WSL download the latest version of KinD in the WSL
       Terminal: curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.8.1/kind-$(uname)-amd64
       # the -o flag is to output files
       # the -L flag is to follow link if it redirects
       # the uname is the operating system. If you type uname into the terminal you will get the os.
       # $() is a template string place holder. So typing $(uname) is the same as typing kind-os-amd64
       # Ref: https://devhints.io/curl
-   2. Make the file into an executable binary
+   3. Make the file into an executable binary
       Terminal: chmod +x ./kind
-   3. Move the binary to the executable path
+   4. Move the binary to the executable path
       Terminal: sudo mv ./kind /usr/local/bin/
 
 Create Test Cluster with KinD
