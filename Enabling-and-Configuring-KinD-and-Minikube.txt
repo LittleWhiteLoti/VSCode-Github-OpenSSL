@@ -1,3 +1,7 @@
+Note: KinD and Minikube are used for a single local cluster
+Skip to Enabling Kubernetes Production Clusters if that is what
+you really need.
+
 Enabling KinD
    1. Go to the web page and check what the latest version is at https://github.com/kubernetes-sigs/kind/releases/ 
    1. Back in WSL download the latest version of KinD in the WSL
@@ -65,7 +69,8 @@ EOF
       Terminal: kubectl get nodes
 
 Adding Dashboard to KinD Cluster
-   # Insecure Version (Not Working)
+   # This should never be used in production. It is the insecure Version
+      along with allowing one user blanket access to the cluster 
    1. Applying dashboard yaml file 
       Terminal: kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc6/aio/deploy/recommended.yaml
       # This will add a lot of yaml configurations to the kubectl
@@ -79,8 +84,50 @@ Adding Dashboard to KinD Cluster
       # To make it accessible from the outside we need to create a
       temporaray proxy
       Terminal: kubectl proxy
-   3. 
-   # Secure Version (Not Working)
+   3. Accessing the dashboard
+      # In a browser go to: http://127.0.0.1:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+      # Note: The protocol is http not https
+      # The options you have available to you are not available. You did not set up a bearer token or the kubeconf file
+   4. Setting up Role-based Access Control (RBAC) by creating a yaml file with the following configurations
+      Terminal: cat << EOF > <name>.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+EOF
+      Terminal: kubectl apply -f <name>.yaml
+      # ServiceAccount is one of the predefined values of kind. Only the following values can be used: ServiceAccount, ClusterRole, ClusterRoleBinding
+      # kubernetes-dashboard is a predefined value for the namespace key.
+   5. Create cluster role binding with the following configurations
+      Terminal: cat << EOF > <name>.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: dashboard
+EOF
+   6. Get the token for the dashboard
+      Terminal: kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+      # Copy the token
+      Terminal: kubectl proxy
+      # In a browser go to: http://127.0.0.1:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+      # Past the token
+      # You will notice there are no nodes in. This is because there are no nodes in a cluster in the configurations
+   7. Redoing configurations with cluster
+      # Open back up the second yaml file
+      
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6IndPUXUzZ2VrcFJ1YVhfTU1RYmNpclN3NTF3QVBXd0RLT3hrUTctSmEwR0UifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXRubnprIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJjMjdlMmE3NC1kZGM2LTQyMTgtOTI5Zi04ZWI3NjdhYTFiNTQiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.SJBYic3tgL-90a8-YDO6bk45JT0xnxkpyIq5LHPBH9SVmt1oLXhF-kIvVW8lm6gu39n-dsDW4aJxEl2k59bPzMOyCBnsBm6GArZIXwkusUhEWlaxiQT3PfIhTmvkVaPd6Ni0bQvz5YdmKPsHQ7SBC7e_3CY2Lj02ejQLwe_il08AL4U_9Sz32LGdYiqZXfufI32fXrNOBloM4HEmrOG45hRx407YCZYvlS68TzMy7uKSdQ3w-FZvCghVzGJSlDBj0ZfAXDai3-Np-bVmzGoNYE9e3pF21tUm00PkQX7Dqv5fqlVoAMKosLK7TLk3-TtPtalZDP_0LW0EPQPKSct6ng
+
+   Ref: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 
 
