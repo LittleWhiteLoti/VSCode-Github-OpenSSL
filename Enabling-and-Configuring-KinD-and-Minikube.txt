@@ -1,6 +1,6 @@
 Note: KinD and Minikube are used for a single local cluster
-Skip to Enabling Kubernetes Production Clusters if that is what
-you really need.
+Go to Linux-kubernetes-Deployment repository for production
+instructions
 
 Enabling KinD
    1. Go to the web page and check what the latest version is at https://github.com/kubernetes-sigs/kind/releases/ 
