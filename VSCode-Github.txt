@@ -1,4 +1,4 @@
-Download and use github in Visual Studio Code
+git aDownload and use github in Visual Studio Code
 
 Setting up Github in Visual Studio Code
    1. Download git from https://git-scm.com/download/win
@@ -80,11 +80,38 @@ Ignore directory changes in VSCode
    5. Close VSCode and launch it again to make sure the .gitignore configurations are loaded 
    6. Find a directory with a lot of packages and run npm install to test that the .gitignore file works
 
-Initial commit from local repository to remote
-   1. Make sure the new repository exist on github and that it is empty
-   2. Create new repository on github or through the terminal
-   3. Open terminal (Shortcut Ctrl + `)
-      * Make sure you are in the directory you want the local copy of your repository to live in
+Initial commit from local repository to remote (without a pre-existing remote repository)
+Note: This uses github's create repository API and allows a repository to be 
+      initialized from the commend-line. You will need a http command-line tool like cURL
+      or wget
+Note: If your Windows 10 build is 17063 then curl is installed by default
+   1. Open terminal (Shortcut Ctrl + `)
+   *  This uses the cURL http command-line tool
+      Terminal: curl -u '{{ USERNAME }}:{{ PASSWORD }}' https://api.github.com/user/repos -d '{"name":"{{ repository Name }}","description":"{{ repository description }}"}'
+   *  To add additional parameters to your repo initialization add them to the JSON at the end. The only key-value that is required is:
+      "name":"Repository Name". Avoid spaces in the repository.
+   *  Read the ref at the end to learn about how to use the API tool. Warning: The 
+      instruction on how to use the API can change at any time without warning so be
+      aware that something that works one day might no longer work another day
+   2. Create folder on your system to act as the new local repository on your system
+   3. Move into the directory where your local repository will live
+      Termianl: cd /Path/To/Repository
+   4. Link the local repository to the remote, do an initial commit
+      Terminal: git init
+      Terminal: git add .
+	   Terminal: git commit -m "Initial commit"
+	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
+	   Terminal: git push -u origin master
+
+Ref: https://developer.github.com/v3/repos/#create
+
+
+Initial commit from local repository to remote on github
+   1. Create repository on github
+   2. Create folder on your system to act as the new local repository on your system
+   3. Move into the directory where your local repository will live
+      Termianl: cd /Path/To/Repository
+   4. Link the local repository to the remote, do an initial commit
       Terminal: git init
       Terminal: git add .
 	   Terminal: git commit -m "Initial commit"
@@ -92,6 +119,8 @@ Initial commit from local repository to remote
 	   Terminal: git push -u origin master
 	  
 Commit from local repository to remote
+Note: Complete the instruction for one of the "Initial commit from local repository to remote"
+      above before doing this
    1. Navigate to repository with a .git already in it. If it does not exists use the previous instructions
    2. Open terminal (Shortcut Ctrl + `)
       Terminal: git add .
