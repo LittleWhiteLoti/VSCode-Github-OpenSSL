@@ -85,6 +85,8 @@ Note: This uses github's create repository API and allows a repository to be
       initialized from the commend-line. You will need a http command-line tool like cURL
       or wget
 Note: If your Windows 10 build is 17063 then curl is installed by default
+   * Use of the API without username and password are slowly being deprecated and will be entirely
+      unusable by Sept 2020, please use the next instruction set
    1. Open terminal (Shortcut Ctrl + `)
    *  This uses the cURL http command-line tool
       Terminal: curl -u '{{ USERNAME }}:{{ PASSWORD }}' https://api.github.com/user/repos -d '{"name":"{{ repository Name }}","description":"{{ repository description }}"}'
@@ -103,10 +105,33 @@ Note: If your Windows 10 build is 17063 then curl is installed by default
 	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
 	   Terminal: git push -u origin master
 
+Initial commit from local repository to remote (without a pre-existing remote repository) using Authorization Code
+Note: This uses github's create repository API and allows a repository to be 
+      initialized from the commend-line. You will need a http command-line tool like cURL
+      or wget
+Note: If your Windows 10 build is 17063 then curl is installed by default
+   1. Log on to your account in github.com
+   2. Go to Developer Settings in your account
+   3. Click Personal Access Tokens
+   4. Click Generate New Token
+   5. In the note put something like token for Github API access
+   6. Give it the (parent) `repo` and `delete_repo` permission
+   *  (Optional) Give the token all permissions
+   7. Click Generate Token
+   8. You will be redirected to your personal access tokens page with your new token on top
+   9. Go to VSCode
+  10. Open terminal (Shortcut Ctrl + `)
+   *  This uses the cURL http command-line tool
+      Terminal: curl -u '{{ USERNAME }}:{{ Token }}' https://api.github.com/user/repos -d '{"name":"{{ repository Name }}","description":"{{ repository description }}"}'
+   *  To add additional parameters to your repo initialization add them to the JSON at the end. The only key-value that is required is:
+      "name":"Repository Name". Avoid spaces in the repository.
+   *  Read the ref at the end to learn about how to use the API tool. Warning: The 
+      instruction on how to use the API can change at any time without warning so be
+      aware that something that works one day might no longer work another day
+
 Ref: https://developer.github.com/v3/repos/#create
 
-
-Initial commit from local repository to remote on github
+Initial commit from local repository to remote on github (with existing remote repository)
    1. Create repository on github
    2. Create folder on your system to act as the new local repository on your system
    3. Move into the directory where your local repository will live
@@ -161,3 +186,6 @@ Change commit message length in VSCode Github Pull Request Extension
    5. Change the value of Git: Input Validation Subject Length
    6. Close settings and close Visual Studio Code
    
+
+* Still need to include push/pull to specific branch
+* merge & Rebase
