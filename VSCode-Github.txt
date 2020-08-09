@@ -202,15 +202,22 @@ Switching Branches
 Alternative: Switching Branches
    1. In the lower left corner select the branch you want to switch to
 
+Pushing to New Branch
+   1. In the new branch from the previous instructions, make a small change and push
+   2. If this is the first push from the new branch to git repository you will get a 
+      warning there is no upstream branch then ask if you want to create one. Click yes
+
 Delete Branch
    1. Press Ctrl + Shift + P
    2. Type and select Delete Branch
    3. Select the branch and hit Enter and the branch will be deleted
    #  You cannot delete the branch you are working on
 
-Pulling from Branch other than Master
-
-Committing to branch
+Cloning from Branch other than Master
+   # When cloning a different branch of the repository it downloads the entire repository
+     then switches branches. There is nothing special about the --branch flag to the clone
+     command. Manually switch by using the Ctrl + Shift + P or from the lower left branch
+     list.
 
 Change commit message length in VSCode Github Pull Request Extension
    1. File > Preferences > Settings (Shortcut Ctrl + ,)
@@ -220,5 +227,5 @@ Change commit message length in VSCode Github Pull Request Extension
    5. Change the value of Git: Input Validation Subject Length
    6. Close settings and close Visual Studio Code   
 
-* Still need to include push/pull to specific branch
+
 * merge & Rebase
