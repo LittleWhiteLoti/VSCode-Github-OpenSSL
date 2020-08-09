@@ -207,11 +207,20 @@ Pushing to New Branch
    2. If this is the first push from the new branch to git repository you will get a 
       warning there is no upstream branch then ask if you want to create one. Click yes
 
-Delete Branch
+Delete Local Branch
    1. Press Ctrl + Shift + P
    2. Type and select Delete Branch
    3. Select the branch and hit Enter and the branch will be deleted
    #  You cannot delete the branch you are working on
+
+Delete Remote Branch
+   1. Open terminal (Shortcut Ctrl + `)
+      Terminal: git push https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git --delete {{ branch name }}
+
+Delete Remote Branch from Github
+   1. Go to github.com and the repository
+   2. Click branch
+   3. On the right there should be a delete button for each branch except the master
 
 Cloning from Branch other than Master
    # When cloning a different branch of the repository it downloads the entire repository
