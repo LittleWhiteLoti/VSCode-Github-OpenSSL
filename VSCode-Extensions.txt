@@ -3,6 +3,7 @@
 Git Graph
 Git History
 Git History Diff
+Git File History
 Github
 Github Pull Requests and Issues
 GitLens includes Git Blame
