@@ -138,10 +138,12 @@ Initial commit from local repository to remote on github (with existing remote r
       Termianl: cd /Path/To/Repository
    4. Link the local repository to the remote, do an initial commit
       Terminal: git init
-      Terminal: git add .
-	   Terminal: git commit -m "Initial commit"
 	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
-	   Terminal: git push -u origin master
+	   Terminal: git pull --rebase origin master
+      Terminal: git add .
+      Terminal: git commit -m "Initial commit"
+      Terminal: git branch --set-upstream-to=origin/master
+      Terminal: git push
 	  
 Commit from local repository to remote
 Note: Complete the instruction for one of the "Initial commit from local repository to remote"
@@ -150,7 +152,7 @@ Note: Complete the instruction for one of the "Initial commit from local reposit
    2. Open terminal (Shortcut Ctrl + `)
       Terminal: git add .
 	   Terminal: git commit -m "Initial commit"
-	   Terminal: git push -u origin master
+	   Terminal: git push
 
 Creating new local repository from existing remote repository
    1. Make sure you are in the directory you want the local copy of your repository to live in
