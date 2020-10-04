@@ -131,7 +131,7 @@ Note: If your Windows 10 build is 17063 then curl is installed by default
 
 Ref: https://developer.github.com/v3/repos/#create
 
-Initial commit from local repository to remote on github (with existing remote repository)
+Initial push from local repository to remote on github (with existing remote repository)
    1. Create repository on github
    2. Create folder on your system to act as the new local repository on your system
    3. Move into the directory where your local repository will live
@@ -140,19 +140,24 @@ Initial commit from local repository to remote on github (with existing remote r
       Terminal: git init
 	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
 	   Terminal: git pull --rebase origin master
+      Note: Will out put fatal: couldn't find remote ref master if the master branch never existed
       Terminal: git add .
       Terminal: git commit -m "Initial commit"
-      Terminal: git branch --set-upstream-to=origin/master
-      Terminal: git push
+      Note: Use the command below for the intial push ONLY
+      Terminal: git push --track origin master
+      Note: Putting --track will allow github to track changes on the branch origin master. This used
+      to be git push --set-upstream origin master
+      Note: Use the command below for additional pushes
+      Terminal: git push -u origin master
 	  
-Commit from local repository to remote
+Pushes from local repository to remote
 Note: Complete the instruction for one of the "Initial commit from local repository to remote"
       above before doing this
    1. Navigate to repository with a .git already in it. If it does not exists use the previous instructions
    2. Open terminal (Shortcut Ctrl + `)
       Terminal: git add .
 	   Terminal: git commit -m "Initial commit"
-	   Terminal: git push
+      Terminal: git push -u origin master
 
 Creating new local repository from existing remote repository
    1. Make sure you are in the directory you want the local copy of your repository to live in
@@ -196,20 +201,20 @@ Cloning Master Branch to Another Branch
    4. The new branch will be created and you will automatically be switched to it
    #  To confirm you are in the correct working branch look in the lower left corner
 
-Switching Branches
+Switching Branches (Visual Studio Code)
    1. Press Ctrl + Shift + P
    2. Type and select Checkout to
    3. Select the branch and hit Enter and you will be switched to it
 
-Alternative: Switching Branches
+Alternative: Switching Branches (Visual Studio Code)
    1. In the lower left corner select the branch you want to switch to
 
-Pushing to New Branch
+Pushing to New Branch (Visual Studio Code)
    1. In the new branch from the previous instructions, make a small change and push
    2. If this is the first push from the new branch to git repository you will get a 
       warning there is no upstream branch then ask if you want to create one. Click yes
 
-Delete Local Branch
+Delete Local Branch (Visual Studio Code)
    1. Press Ctrl + Shift + P
    2. Type and select Delete Branch
    3. Select the branch and hit Enter and the branch will be deleted
@@ -224,7 +229,7 @@ Delete Remote Branch from Github
    2. Click branch
    3. On the right there should be a delete button for each branch except the master
 
-Cloning from Branch other than Master
+Cloning from Branch other than Master (Visual Studio Code)
    # When cloning a different branch of the repository it downloads the entire repository
      then switches branches. There is nothing special about the --branch flag to the clone
      command. Manually switch by using the Ctrl + Shift + P or from the lower left branch
