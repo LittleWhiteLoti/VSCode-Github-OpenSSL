@@ -1,4 +1,4 @@
-(Recommeded Extensions)
+MS Store Recommeded Extensions:
 #region folding for VS Code
 Git Graph
 Git History
@@ -10,9 +10,18 @@ GitLens includes Git Blame
 IntelliSense for CSS class names
 Visual Studio IntelliCode
 JS & CSS Minifier
+ESLint
+Remote-WSL
 
-(Optional Extensions)
+MS Store Optional Extensions:
 Auto Close Tags
 Auto Ccomplete  Tags
-ESLint
 Formatting Toggle
+
+NPM Store:
+npm-check-updates
+
+Not on NPM Store:
+(Vue Extensions)
+Note: Not available not npm
+eslint-plugin-vue
