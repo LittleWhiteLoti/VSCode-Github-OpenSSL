@@ -34,8 +34,8 @@ Syncing Visual Studio Code with Github.com account
    2. Download GitHub Pull Requests extension
    3. Open terminal (Shortcut Ctrl + `)
       Terminal: git config --global user.name {{ USERNAME }}
-	   Terminal: git config --global user.email {{ EMAIL }}
-	4. Click Github Pull Request extension on the side window
+      Terminal: git config --global user.email {{ EMAIL }}
+   4. Click Github Pull Request extension on the side window
    5. Click Sign In and a window will pop up asking you to sign into Github 
    and to add an OAuth token.
    * You may have to do a pull or push to a repository for the user dialog 
@@ -49,7 +49,7 @@ Disable Diagnostics Crash Reporting
 
 Enable Bash Terminal
    1. Open search bar with Ctrl + Shift + p
-   2. In the search bar type >Shell
+   2. In the search bar type > Shell
    3. Select "Terminal Select Default Shell"
    4. Select "Git Bash"
 
@@ -138,17 +138,19 @@ Initial push from local repository to remote on github (with existing remote rep
       Termianl: cd /Path/To/Repository
    4. Link the local repository to the remote, do an initial commit
       Terminal: git init
-	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
-	   Terminal: git pull --rebase origin master
+      Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
+      Terminal: git pull --rebase origin master
       Note: Will out put fatal: couldn't find remote ref master if the master branch never existed
       Terminal: git add .
       Terminal: git commit -m "Initial commit"
+      Terminal: git branch -M main
+      Note: Use the command below for additional pushes
+      Terminal: git push -u origin main
+      Note: Use instructions below if github is having trouble tracking
       Note: Use the command below for the intial push ONLY
       Terminal: git push --track origin master
       Note: Putting --track will allow github to track changes on the branch origin master. This used
-      to be git push --set-upstream origin master
-      Note: Use the command below for additional pushes
-      Terminal: git push -u origin master
+      to be git push --set-upstream origin main
 	  
 Pushes from local repository to remote
 Note: Complete the instruction for one of the "Initial commit from local repository to remote"
@@ -156,8 +158,9 @@ Note: Complete the instruction for one of the "Initial commit from local reposit
    1. Navigate to repository with a .git already in it. If it does not exists use the previous instructions
    2. Open terminal (Shortcut Ctrl + `)
       Terminal: git add .
-	   Terminal: git commit -m "Initial commit"
-      Terminal: git push -u origin master
+      Terminal: git commit -m "Initial commit"
+      Terminal: git branch -M main
+      Terminal: git push -u origin main
 
 Creating new local repository from existing remote repository
    1. Make sure you are in the directory you want the local copy of your repository to live in
@@ -165,6 +168,7 @@ Creating new local repository from existing remote repository
       Terminal: git init
       Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
       Terminal: git clone https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
+      Terminal: git branch -M main
    #  The clone command will automatically track the repository
 
 Creating new local repository from existing organization repository
@@ -194,7 +198,7 @@ Setting up Extension Recommendations Per project
    #  As an array of strings, type the extension reference id seen on the extension marketplace 
      next to the extension into the extensions.json file
 
-Cloning Master Branch to Another Branch
+Cloning Main Branch to Another Branch
    1. Press Ctrl + Shift + P
    2. Type and select Create Branch From
    3. Give a new name from the branch and hit Enter
