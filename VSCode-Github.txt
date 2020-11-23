@@ -1,4 +1,4 @@
-git aDownload and use github in Visual Studio Code
+Download and use github in Visual Studio Code
 
 Setting up Github in Visual Studio Code
    1. Download git from https://git-scm.com/download/win
