@@ -1,0 +1,144 @@
+Note: KinD and Minikube are used for a single local cluster
+Go to Linux-kubernetes-Deployment repository for production
+instructions
+
+Enabling KinD
+   1. Go to the web page and check what the latest version is at https://github.com/kubernetes-sigs/kind/releases/ 
+   2. Back in WSL download the latest version of KinD in the WSL
+      Terminal: curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.8.1/kind-$(uname)-amd64
+      # the -o flag is to output files
+      # the -L flag is to follow link if it redirects
+      # the uname is the operating system. If you type uname into the terminal you will get the os.
+      # $() is a template string place holder. So typing $(uname) is the same as typing kind-os-amd64
+      # Ref: https://devhints.io/curl
+   3. Make the file into an executable binary
+      Terminal: chmod +x ./kind
+   4. Move the binary to the executable path
+      Terminal: sudo mv ./kind /usr/local/bin/
+
+Create Test Cluster with KinD
+   1. Check KUBECONFIG does not exist
+      Terminal: echo KUBECONFIG
+      # It should return an empty
+   2. Check for the .kube directory in your home folder
+      Terminal: cd .kube
+      # If it returns no file or directory then executable the next line in the terminal
+      Terminal: mkir .kube
+      # the period in front indicates that it is a hidden directory
+   3. Initializing Cluster
+      Terminal: kind create cluster --name <name for cluster>
+      # The process `Ensuring node image` may take a bit of time. Be patient
+   4. Check the .kube directory has been populated with the config directory
+      Terminal: ls .kube
+   5. Check the master kube has been created
+      Terminal: kubectl cluster-info
+      # Information about your cluster will show up
+      # If you type the IP in the Windows browser you will probably get a warning saying the SSL certificate
+        may potentially be insecure. Ignore the warning and go to accept the risk. This will redirect you to
+        a page with an JSON and a 403 Forbidden error
+      # Notice the seamless intergration of docker between WSL2 and the Window 
+        machine. This is a big accomplishment from WSL1.
+   6. Check how many nodes are running on the newly created cluster
+      Terminal: kubectl get nodes
+   7. Check all clusters in all namespaces
+      Terminal: kubectl get all --all-namespaces
+      # This will show all the information for all clusters
+   8. Remove the cluster you just created
+      Terminal: kind delete cluster --name <name of cluster>
+   9. Verify clust was deleted
+      Terminal: kubectl get all --all-namespaces
+
+Create Real Cluster with KinD
+   1. Create a cluster yaml file with the following
+      Terminal: cat << EOF > <name>.yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+  - role: worker
+  - role: worker
+EOF
+      # the cat is concatenating to a file content to the <name>.yaml
+      # << EOF > are delimiters saying where the file begins and ends
+      # Pressing Enter allows you to move to a new line
+      # Typing the delimiter EOF closes the write buffer for the file 
+  10. Initialize cluser with the configurations from the <name>.yaml
+      Terminal: kind create cluster --name wslkindmultinodes --config ./<name>.yaml
+      # The process `Ensuring node image` may take a bit of time. Be patient
+  11. Check the nodes that were created in the cluster, it should be 3
+      Terminal: kubectl get nodes
+
+Adding Dashboard to KinD Cluster
+   # This should never be used in production. It is the insecure Version
+      along with allowing one user blanket access to the cluster 
+   1. Applying dashboard yaml file 
+      Terminal: kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc6/aio/deploy/recommended.yaml
+      # This will add a lot of yaml configurations to the kubectl
+      Terminal: kubectl get all -n kubernetes-dashboard
+   2. Creating kubernetes proxy for dashboard
+      # We cannot reach it right now if it is typed in the Windows host 
+      browser because it is an internal IP. To verify this type the
+      following:
+      Terminal: kubectl cluster-info
+      # Copy the URL and type it into the Windows Host browser
+      # To make it accessible from the outside we need to create a
+      temporaray proxy
+      Terminal: kubectl proxy
+   3. Accessing the dashboard
+      # In a browser go to: http://127.0.0.1:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+      # Note: The protocol is http not https
+      # The options you have available to you are not available. You did not set up a bearer token or the kubeconf file
+   4. Setting up Role-based Access Control (RBAC) by creating a yaml file with the following configurations
+      Terminal: cat << EOF > <name>.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+EOF
+      Terminal: kubectl apply -f <name>.yaml
+      # ServiceAccount is one of the predefined values of kind. Only the following values can be used: ServiceAccount, ClusterRole, ClusterRoleBinding
+      # kubernetes-dashboard is a predefined value for the namespace key.
+   5. Create cluster role binding with the following configurations
+      Terminal: cat << EOF > <name>.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: dashboard
+EOF
+   6. Get the token for the dashboard
+      Terminal: kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+      # Copy the token
+      Terminal: kubectl proxy
+      # In a browser go to: http://127.0.0.1:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+      # Past the token
+      # You will notice there are no nodes in. This is because there are no nodes in a cluster in the configurations
+   7. Redoing configurations with cluster
+      # Open back up the second yaml file
+
+   Ref: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+
+
+
+   Ref: https://github.com/kubernetes/dashboard/blob/master/docs/user/installation.md
+
+   kubectl proxy --address='0.0.0.0' --port=8002 --accept-hosts='.*'
+
+
+Enabling Minikube
+
+Configuring a Continuous Integration Environment
+
+Connecting CI with Github
+
+
+
+Ref: https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-desktop/

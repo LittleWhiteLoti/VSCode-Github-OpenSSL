@@ -1,0 +1,51 @@
+Download and OpenSSL run
+   1. Open https://slproweb.com/products/Win32OpenSSL.html
+   2. Download the Exe or MSI
+   3. Run the file
+      # Path C:\Program Files\OpenSSL-Win64 or where ever you want the installation
+      # Copy OpenSSL DLLs to: The OpenSSL binaries (/bin) directory
+   4. Search Environment Variables
+      # Click the advanced tab
+      # Environment Variables 
+      # Click System Variables then Path
+      # Edit or Browse and look for the installation path for OpenSSL /bin
+   5. Click Okay to close the Variables window
+   6. Click Okay to close the Environment Variables window
+   7. Click Okay to close the System Properties
+
+Create a Development SSL Certificate and Key
+   1. Open command-line in Administrator mode
+   2. Move to the directory you want to put the keys at
+   3. In the command-line
+
+Create Certificate Authority Key
+   1. Open terminal
+      Terminal: openssl genrsa -des3 -out {CA}.key 4096
+      Terminal: Passphrase for {CA}.key
+      Terminal: openssl req -x509 -new -nodes -key {CA}.key -sha256 
+      -days 1095 -out {CA}.pem
+      Terminal: Enter previously given passphrase for {CA}.key
+      Terminal: Enter In Fake Information for CA Authority
+   2. (optional) Installing Certificate Authority into windows
+   3. Create Development Server Certificate Signing Request
+      Terminal: openssl genrsa -out {localhost}.key 4096
+      Terminal: openssl req -new -key {localhost}.key -out {localhost}.csr
+      Terminal: Enter In Fake Information for Server
+      Terminal: (optional) Enter challenge passphrase
+   4. Copy the latter into a text file
+
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost
+
+   5. Change file extensions to {something}.ext
+   6. Create Development Server Certificate
+      # The argument x509 req is different from the creation -x509 req
+      Terminal: openssl x509 -req -in {localhost}.csr -CA {CA}.pem -CAkey {CA}.key 
+      -CAcreateserial -out {localhost}.crt -days 730 -sha256 -extfile {something}.ext 
+      # A {CA}.srl and a {localhost}.crt file will be created
+
+Ref: https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/

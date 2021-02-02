@@ -1,0 +1,18 @@
+(Recommeded Extensions)
+#region folding for VS Code
+Git Graph
+Git History
+Git History Diff
+Git File History
+Github
+Github Pull Requests and Issues
+GitLens includes Git Blame
+IntelliSense for CSS class names
+Visual Studio IntelliCode
+JS & CSS Minifier
+
+(Optional Extensions)
+Auto Close Tags
+Auto Ccomplete  Tags
+ESLint
+Formatting Toggle
