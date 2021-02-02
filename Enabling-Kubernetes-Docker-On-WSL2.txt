@@ -42,7 +42,7 @@ Enable Kubernetes & Docker in Windows Subsystem Linux
       Terminal: apt-get remove <package name>
    4. In the Windows main system search docker. If it shows up jump to step 5.
       # If not found download from: https://docs.docker.com/docker-for-windows/wsl/.
-      There should be an icon says Get Docks Desktop for Windows (stable). It 
+      There should be an icon that says Get Docker Desktop for Windows (stable). It 
       is not recommended to downloaded Edge because there are a lot of 
       experimental features that could be removed or changed before release.
       # Run the installer once the program is done downloading. A 

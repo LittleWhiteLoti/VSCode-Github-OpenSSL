@@ -55,17 +55,24 @@ Enable Bash Terminal
 
 Create .bashrc
    1. Open terminal (Shortcut Ctrl + `)
-   2. Navigate to your user home directory
+   2. Navigate to the user home directory
    3. Type "copy > ~/.bashrc"
-       # The terminal will say "Command not found" but the .bashrc file will be created
+      # The terminal will say "Command not found" but the .bashrc file will be created
 
 Common .bashrc Alias
-   - Alias vue command and enable Vue Create
+   - Aliases vue command and enable Vue Create
       1. Open .bashrc
       2. Type into the .bashrc file
          # alias vue='winpty vue.cmd'
       3. Save .bashrc file
-      4. Restart VSCode
+      4. Restart the terminal
+
+Start a terminal at a specific directory
+   1. Open .bashrc
+   2. Type into the .bashrc file
+      # cd ~/path/to/directory
+   3. Save .bashrc file
+   4. Restart the terminal
 
 Ignore directory changes in VSCode
    * Useful if a directory is changed a lot, such as, node_modules
@@ -160,6 +167,20 @@ Creating new local repository from existing remote repository
       Terminal: git clone https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
    #  The clone command will automatically track the repository
 
+Cloning from Branch other than Master
+   1. Open terminal (Shortcut Ctrl + `)
+      Terminal: git clone --branch branch_name https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
+
+Alternative: Cloning from Branch other than Master
+   1. Open terminal (Shortcut Ctrl + `)
+      Terminal: git clone -b branch_name https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
+
+Note: Cloning from Branch other than Master
+   # When cloning a different branch of the repository it downloads the entire repository
+     then switches branches. There is nothing special about the --branch flag to the clone
+     command. Manually switch by using the Ctrl + Shift + P or from the lower left branch
+     list.
+
 Creating new local repository from existing organization repository
    Note: The same instructions as above but the organization name replaces the USERNAME
 	  
@@ -221,12 +242,6 @@ Delete Remote Branch from Github
    1. Go to github.com and the repository
    2. Click branch
    3. On the right there should be a delete button for each branch except the master
-
-Cloning from Branch other than Master
-   # When cloning a different branch of the repository it downloads the entire repository
-     then switches branches. There is nothing special about the --branch flag to the clone
-     command. Manually switch by using the Ctrl + Shift + P or from the lower left branch
-     list.
 
 Change commit message length in VSCode Github Pull Request Extension
    1. File > Preferences > Settings (Shortcut Ctrl + ,)
