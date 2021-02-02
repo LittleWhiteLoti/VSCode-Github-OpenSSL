@@ -1,9 +1,0 @@
-Connecting Node to windows environment variable
-   1. Search Environment Variables
-   2. In the System Properties windows click Environment Variables
-   3. In User variables for { Username } click Path then click Edit
-   4. If the npm does appear Click browser and look for the folder C:/Users/{Username}/AppData/Roaming/npm
-   5. Click OK
-   6. In System variables click Path then click Edit
-   7. Click browse and look for the folder C:/(Program Files | Program File (x86))/nodejs
-   8. Click OK

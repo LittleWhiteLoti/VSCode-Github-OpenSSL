@@ -1,4 +1,4 @@
-git aDownload and use github in Visual Studio Code
+Download and use github in Visual Studio Code
 
 Setting up Github in Visual Studio Code
    1. Download git from https://git-scm.com/download/win
@@ -34,8 +34,8 @@ Syncing Visual Studio Code with Github.com account
    2. Download GitHub Pull Requests extension
    3. Open terminal (Shortcut Ctrl + `)
       Terminal: git config --global user.name {{ USERNAME }}
-	   Terminal: git config --global user.email {{ EMAIL }}
-	4. Click Github Pull Request extension on the side window
+      Terminal: git config --global user.email {{ EMAIL }}
+   4. Click Github Pull Request extension on the side window
    5. Click Sign In and a window will pop up asking you to sign into Github 
    and to add an OAuth token.
    * You may have to do a pull or push to a repository for the user dialog 
@@ -49,7 +49,7 @@ Disable Diagnostics Crash Reporting
 
 Enable Bash Terminal
    1. Open search bar with Ctrl + Shift + p
-   2. In the search bar type >Shell
+   2. In the search bar type > Shell
    3. Select "Terminal Select Default Shell"
    4. Select "Git Bash"
 
@@ -108,9 +108,9 @@ Note: If your Windows 10 build is 17063 then curl is installed by default
    4. Link the local repository to the remote, do an initial commit
       Terminal: git init
       Terminal: git add .
-	   Terminal: git commit -m "Initial commit"
-	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
-	   Terminal: git push -u origin master
+      Terminal: git commit -m "Initial commit"
+      Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
+      Terminal: git push -u origin master
 
 Initial commit from local repository to remote (without a pre-existing remote repository) using Authorization Code
 Note: This uses github's create repository API and allows a repository to be 
@@ -138,26 +138,38 @@ Note: If your Windows 10 build is 17063 then curl is installed by default
 
 Ref: https://developer.github.com/v3/repos/#create
 
-Initial commit from local repository to remote on github (with existing remote repository)
+Initial push from local repository to remote on github (with existing remote repository)
    1. Create repository on github
    2. Create folder on your system to act as the new local repository on your system
    3. Move into the directory where your local repository will live
-      Termianl: cd /Path/To/Repository
+      Terminal: cd /Path/To/Repository
    4. Link the local repository to the remote, do an initial commit
       Terminal: git init
+      Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
+   *  Make sure that nothing exists in the local repository otherwise you will get a warning that
+      the histories of your local and remote repository do not match up
+      Terminal: git pull --rebase origin main
+   *  Will out put fatal: couldn't find remote ref master if the main branch never existed
       Terminal: git add .
-	   Terminal: git commit -m "Initial commit"
-	   Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
-	   Terminal: git push -u origin master
+      Terminal: git commit -m "Initial commit"
+      Terminal: git branch -M main
+      Note: Use the command below for additional pushes
+      Terminal: git push -u origin main
+      Note: Use instructions below if github is having trouble tracking
+      Note: Use the command below for the intial push ONLY
+      Terminal: git push --track origin main
+      Note: Putting --track will allow github to track changes on the branch origin master. This used
+      to be git push --set-upstream origin main
 	  
-Commit from local repository to remote
+Pushes from local repository to remote
 Note: Complete the instruction for one of the "Initial commit from local repository to remote"
       above before doing this
    1. Navigate to repository with a .git already in it. If it does not exists use the previous instructions
    2. Open terminal (Shortcut Ctrl + `)
       Terminal: git add .
-	   Terminal: git commit -m "Initial commit"
-	   Terminal: git push -u origin master
+      Terminal: git commit -m "Initial commit"
+      Terminal: git branch -M main
+      Terminal: git push -u origin main
 
 Creating new local repository from existing remote repository
    1. Make sure you are in the directory you want the local copy of your repository to live in
@@ -165,7 +177,8 @@ Creating new local repository from existing remote repository
       Terminal: git init
       Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
       Terminal: git clone https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
-   #  The clone command will automatically track the repository
+      Terminal: git branch -M main
+   *  The clone command will automatically track the repository
 
 Cloning from Branch other than Master
    1. Open terminal (Shortcut Ctrl + `)
@@ -205,30 +218,30 @@ Setting up Extension Recommendations Per project
    3. Click the three dots and select Show Recommendation Extensions
    4. Click the pencil icon next to the Workspace Recommendations
    5. A file called extensionss.json will open up
-   #  As an array of strings, type the extension reference id seen on the extension marketplace 
+   *  As an array of strings, type the extension reference id seen on the extension marketplace 
      next to the extension into the extensions.json file
 
-Cloning Master Branch to Another Branch
+Cloning Main Branch to Another Branch
    1. Press Ctrl + Shift + P
    2. Type and select Create Branch From
    3. Give a new name from the branch and hit Enter
    4. The new branch will be created and you will automatically be switched to it
-   #  To confirm you are in the correct working branch look in the lower left corner
+   *  To confirm you are in the correct working branch look in the lower left corner
 
-Switching Branches
+Switching Branches (Visual Studio Code)
    1. Press Ctrl + Shift + P
    2. Type and select Checkout to
    3. Select the branch and hit Enter and you will be switched to it
 
-Alternative: Switching Branches
+Alternative: Switching Branches (Visual Studio Code)
    1. In the lower left corner select the branch you want to switch to
 
-Pushing to New Branch
+Pushing to New Branch (Visual Studio Code)
    1. In the new branch from the previous instructions, make a small change and push
    2. If this is the first push from the new branch to git repository you will get a 
       warning there is no upstream branch then ask if you want to create one. Click yes
 
-Delete Local Branch
+Delete Local Branch (Visual Studio Code)
    1. Press Ctrl + Shift + P
    2. Type and select Delete Branch
    3. Select the branch and hit Enter and the branch will be deleted
@@ -243,6 +256,15 @@ Delete Remote Branch from Github
    2. Click branch
    3. On the right there should be a delete button for each branch except the master
 
+<<<<<<< HEAD
+=======
+Cloning from Branch other than Master (Visual Studio Code)
+   * When cloning a different branch of the repository it downloads the entire repository
+     then switches branches. There is nothing special about the --branch flag to the clone
+     command. Manually switch by using the Ctrl + Shift + P or from the lower left branch
+     list.
+
+>>>>>>> fb9321420c51725fa10af6f09f289d17e24656f5
 Change commit message length in VSCode Github Pull Request Extension
    1. File > Preferences > Settings (Shortcut Ctrl + ,)
    2. Type into the search bar: length
