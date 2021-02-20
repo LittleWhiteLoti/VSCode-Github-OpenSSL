@@ -145,21 +145,15 @@ Initial push from local repository to remote on github (with existing remote rep
       Terminal: cd /Path/To/Repository
    4. Link the local repository to the remote, do an initial commit
       Terminal: git init
-      Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
-   *  Make sure that nothing exists in the local repository otherwise you will get a warning that
-      the histories of your local and remote repository do not match up
-      Terminal: git pull --rebase origin main
-   *  Will out put fatal: couldn't find remote ref master if the main branch never existed
       Terminal: git add .
+   *  When doing a commit it is super important that a file exists within what is being being committed because git will ignore directories/sub-directories if the do not 
+      contain any content. This would be a good time to add a .gitignore because all rules are passed down from the top directory to all sub-directories unless a sub-directory
+      has its own .gitignore.	  
       Terminal: git commit -m "Initial commit"
+      Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_NEW_REPOSITORY.git
       Terminal: git branch -M main
       Note: Use the command below for additional pushes
       Terminal: git push -u origin main
-      Note: Use instructions below if github is having trouble tracking
-      Note: Use the command below for the intial push ONLY
-      Terminal: git push --track origin main
-      Note: Putting --track will allow github to track changes on the branch origin master. This used
-      to be git push --set-upstream origin main
 	  
 Pushes from local repository to remote
 Note: Complete the instruction for one of the "Initial commit from local repository to remote"
@@ -256,15 +250,6 @@ Delete Remote Branch from Github
    2. Click branch
    3. On the right there should be a delete button for each branch except the master
 
-<<<<<<< HEAD
-=======
-Cloning from Branch other than Master (Visual Studio Code)
-   * When cloning a different branch of the repository it downloads the entire repository
-     then switches branches. There is nothing special about the --branch flag to the clone
-     command. Manually switch by using the Ctrl + Shift + P or from the lower left branch
-     list.
-
->>>>>>> fb9321420c51725fa10af6f09f289d17e24656f5
 Change commit message length in VSCode Github Pull Request Extension
    1. File > Preferences > Settings (Shortcut Ctrl + ,)
    2. Type into the search bar: length
