@@ -154,9 +154,9 @@ Note: Complete the instruction for one of the "Initial commit from local reposit
 Creating new local repository from existing remote repository
    1. Make sure you are in the directory you want the local copy of your repository to live in
    2. Open terminal (Shortcut Ctrl + `)
-      Terminal: git init
-      Terminal: git remote add origin https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
       Terminal: git clone https://github.com/USERNAME/PATH_TO_EXISTING_REPOSITORY.git
+   3. Move into the cloned repository directory
+      Terminal: git init
       Terminal: git branch -M main
    *  The clone command will automatically track the repository
 
