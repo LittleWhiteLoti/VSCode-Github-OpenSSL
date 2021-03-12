@@ -53,20 +53,6 @@ Enable Bash Terminal
    3. Select "Terminal Select Default Shell"
    4. Select "Git Bash"
 
-Create .bashrc
-   1. Open terminal (Shortcut Ctrl + `)
-   2. Navigate to the user home directory
-   3. Type "copy > ~/.bashrc"
-      # The terminal will say "Command not found" but the .bashrc file will be created
-
-Common .bashrc Alias
-   - Aliases vue command and enable Vue Create
-      1. Open .bashrc
-      2. Type into the .bashrc file
-         # alias vue='winpty vue.cmd'
-      3. Save .bashrc file
-      4. Restart the terminal
-
 Start a terminal at a specific directory
    1. Open .bashrc
    2. Type into the .bashrc file
