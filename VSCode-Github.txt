@@ -73,6 +73,31 @@ Ignore directory changes in VSCode
    5. Close VSCode and launch it again to make sure the .gitignore configurations are loaded 
    6. Find a directory with a lot of packages and run npm install to test that the .gitignore file works
 
+Fixing security Vulerabilities
+   1. Install ncu-check-updates
+   2. Terminal: ncu
+   3. Update all out-of-date packages
+      Terminal: npm -install
+   4. Install npx globally
+      Terminal: npm i -g npx
+   5. In the package.json under the scripts add the following line
+      # "preinstall": "npx npm-force-resolutions"
+   6. Further down the package.json, preferably after "devdevDependencies" add a "resolutions" area
+   7. Look for packages with a vulnerable source package
+   8. Download the newest version of the package with the --save-dev flag
+   9. Add that package and version to the resolutions area of the package.json
+  10. Completely delete the node_modules folder
+  11. Run npm install and you should see the preinstall script run
+  12. There should be no Vulerabilities now. However, if you run npm list you will probably get a bunch of red extraneous errors. 
+      Don't pay too much attention to it
+
+Loading npm packages from github (public)
+   1. In the "dependencies" specify the repository/package name as the key preceded with @ sign and the location 
+      "github:{{ repository name }}/{{ package name }}" as the value
+      Example: dependencies: {
+         "@new-packages/my-new-package": "github:new-packages/my-new-package"
+      }
+
 Initial commit from local repository to remote (without a pre-existing remote repository)
 Note: This uses github's create repository API and allows a repository to be 
       initialized from the commend-line. You will need a http command-line tool like cURL
@@ -241,6 +266,5 @@ Change commit message length in VSCode Github Pull Request Extension
    4. Change the value of Git: Input Validation Length
    5. Change the value of Git: Input Validation Subject Length
    6. Close settings and close Visual Studio Code   
-
 
 * merge & Rebase

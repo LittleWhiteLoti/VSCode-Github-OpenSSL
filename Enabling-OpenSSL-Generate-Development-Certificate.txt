@@ -15,8 +15,7 @@ Download and OpenSSL run
 
 Create a Development SSL Certificate and Key
    1. Open command-line in Administrator mode
-   2. Move to the directory you want to put the keys at
-   3. In the command-line
+   2. Move to the directory you want to put the key and cert in
 
 Create Certificate Authority Key
    1. Open terminal
