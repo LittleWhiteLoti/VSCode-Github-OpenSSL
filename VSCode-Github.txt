@@ -73,6 +73,17 @@ Ignore directory changes in VSCode
    5. Close VSCode and launch it again to make sure the .gitignore configurations are loaded 
    6. Find a directory with a lot of packages and run npm install to test that the .gitignore file works
 
+Install and starting vuejs 3
+   1. npm i -g @vue/cli
+   2. npm i vue@3.1.2 --save
+   3. vue create {{ project name }}
+   *  You cannot use the latest suffix because that points to vuejs 2.6.14
+   4. vue upgrade
+   5. npm list vue
+   *  It should list vuejs as version 3
+   *  Upgrade core-js to ^3.6.5
+   *  Add preinstall and resolutions to package.json to fix vulnerablities known for the following packages css-what, glob-parent, postcss, postcss-focus
+
 Fixing security Vulerabilities
    1. Install ncu-check-updates
    2. Terminal: ncu
@@ -198,7 +209,7 @@ Note: Cloning from Branch other than Master
      list.
 
 Creating new local repository from existing organization repository
-   Note: The same instructions as above but the organization name replaces the USERNAME
+   * The same instructions as above but the organization name replaces the USERNAME
 	  
 Loading repository in Visual Studio Code Source Control that doesn't show up
    1. Source Control Extension
