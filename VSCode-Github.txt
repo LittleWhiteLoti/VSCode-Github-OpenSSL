@@ -86,6 +86,9 @@ Ignore directory changes in VSCode
       extension that github uses.
    5. Close VSCode and launch it again to make sure the .gitignore configurations are loaded 
    6. Find a directory with a lot of packages and run npm install to test that the .gitignore file works
+   
+Download Nodejs
+   1. Download Node Version Manager from https://github.com/coreybutler/nvm-windows
 
 Install and starting vuejs 3
    1. npm i -g @vue/cli
