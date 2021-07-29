@@ -1,23 +1,37 @@
 Download and use github in Visual Studio Code
 
 Setting up Github in Visual Studio Code
-   1. Download git from https://git-scm.com/download/win
-   2. Click Install git
-   3. Select Components Window
+   1. Download and install Notepad++ from https://notepad-plus-plus.org/
+   2. Download git from https://git-scm.com/download/win
+   3. Click Install git
+   4. Select Components Window
       # (Optional) Uncheck Windows Explorer Integration
       # Click Next
-   4. Pick editor for Git File Window
-      # (Optional) Visual Studio Code as Git editor or use Notepad++ if installed
-   5. Git Formatting Window
+   5. Pick editor for Git File Window
+      # (Optional) Notepad++
+   6. Adjusting the name of the initial branch in new repositories
+      # Let Git decide or if your team has a convention than use Override the default branch name for new repositories
+   7. Adjusting your PATH environment
+      # Git from the command line and also from 3rd party software
+   8. Choosing HTTPS transport backend
+      # Use the OpenSSL Library
+   9. Configuring the line ending conversions
       # Checkout as-in, commit Unix-style line endings
+  10. Configuring the terminal emulator to use with Git Bash
       # Use Windows' default console window
-      # Enable file system cachine
-      # Enable Git Credential Manager
+  11. Choose the default behavior of 'git pull'
+      # Default (fast-forward or merge)
+  12. Choose a credential helper
+      # Enable Git Credential Manager Core
       Note: This should add the git binary to system environment path. 
       If it doesn't follow then follow the next instructions.
       # Add Git to environment path
+  13. Configure extra options
+      # Enable file system caching
+  14. Configuring experimental options
+      # Skip
       # Finish installing Git
-   6. Download Visual Studio Code for system from https://code.visualstudio.com/download
+  10. Download Visual Studio Code for system from https://code.visualstudio.com/download
 
 Ref: https://blogs.msdn.microsoft.com/nicktrog/2016/02/11/configuring-visual-studio-code-for-php-development/
 
