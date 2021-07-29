@@ -89,6 +89,17 @@ Ignore directory changes in VSCode
    
 Download Nodejs
    1. Download Node Version Manager from https://github.com/coreybutler/nvm-windows
+   2. Restart the terminal in Visual Studio Code
+   3. Turn nvm on
+       # nvm on
+   4. View all the version of nvm
+       # nvm list available
+   5. Install the latest LTS version
+       # nvm install x.x.x
+   6. Use the installation of node
+       # nvm use x.x.x
+   7. Confirm the installation of node version
+       # nvm list
 
 Install and starting vuejs 3
    1. npm i -g @vue/cli
