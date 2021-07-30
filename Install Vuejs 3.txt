@@ -2,9 +2,8 @@ Install Vuejs 3
    1. Open Terminal (Ctrl + `)
     Terminal: npm install vue@next
     Terminal: npm install -g @vue/cli
-    Terminal: npm 
    2. Alias the vue command
-    Terminal:copy > ~/.bashrc"
+    Terminal: copy > ~/.bashrc"
    # The terminal will say "Command not found" but the .bashrc file will be created
    3. Navigate to the user come directory
     Terminal: cd ~
@@ -20,8 +19,10 @@ Install Vuejs 3
     Terminal: :wq
    7. Restart the terminal
    8. Save the file and check the vue package is working
-    Terminal: npm view vue --depth=0 
-   9. Upgrade Vuejs
+    Terminal: npm view vue --depth=0
+   9. Create a project
+    Terminal: vue create {{ project name }}
+  10. Upgrade Vuejs
     Terminal: vue upgrade --next
 
 Install Vuejs 3 DevTools for Firefox
